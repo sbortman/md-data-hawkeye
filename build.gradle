@@ -1,0 +1,54 @@
+plugins {
+    id("groovy")
+    id("io.micronaut.application") version "1.2.0"
+    id("com.google.cloud.tools.jib") version "2.6.0"
+}
+
+version = "0.1"
+group = "md.data.hawkeye"
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+micronaut {
+    runtime("netty")
+    testRuntime("spock2")
+    processing {
+        incremental(true)
+        annotations("md.data.hawkeye.*")
+    }
+}
+
+dependencies {
+    compileOnly("io.micronaut.openapi:micronaut-openapi")
+    implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut.groovy:micronaut-runtime-groovy")
+    implementation("javax.annotation:javax.annotation-api")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.swagger.core.v3:swagger-annotations")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("org.postgresql:postgresql")
+    testRuntimeOnly("org.testcontainers:postgresql")
+}
+
+
+application {
+    mainClass.set("md.data.hawkeye.Application")
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+
+
+
+    jib {
+        to {
+            image = "gcr.io/myapp/jib-image"
+        }
+    }

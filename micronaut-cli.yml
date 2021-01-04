@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: md.data.hawkeye
+testFramework: spock
+sourceLanguage: groovy
+buildTool: gradle
+features: [annotation-api, app-name, gradle, groovy, groovy-application, hibernate-jpa, http-client, jdbc-hikari, jib, logback, netty-server, openapi, postgres, readme, spock, testcontainers, yaml]
