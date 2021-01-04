@@ -24,6 +24,8 @@ micronaut {
 dependencies {
     compile group: 'org.hibernate', name: 'hibernate-spatial', version: '5.4.12.Final'
 
+    implementation( "org.codehaus.groovy:groovy-json" )
+
     compileOnly("io.micronaut.openapi:micronaut-openapi")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut.groovy:micronaut-runtime-groovy")

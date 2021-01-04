@@ -3,10 +3,10 @@ micronaut:
     name: mdDataHawkeye
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/geodatadb
     driverClassName: org.postgresql.Driver
     username: postgres
-    password: ''
+    password: postgres
 ---
 jpa:
   default:
@@ -15,5 +15,5 @@ jpa:
     properties:
       hibernate:
         hbm2ddl:
-          auto: update
+          auto: create-drop
         dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
