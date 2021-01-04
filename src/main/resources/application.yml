@@ -7,4 +7,13 @@ datasources:
     driverClassName: org.postgresql.Driver
     username: postgres
     password: ''
-jpa.default.properties.hibernate.hbm2ddl.auto: update
+---
+jpa:
+  default:
+    packages-to-scan:
+    - md.data.hawkeye.model
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect

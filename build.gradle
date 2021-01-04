@@ -22,6 +22,8 @@ micronaut {
 }
 
 dependencies {
+    compile group: 'org.hibernate', name: 'hibernate-spatial', version: '5.4.12.Final'
+
     compileOnly("io.micronaut.openapi:micronaut-openapi")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut.groovy:micronaut-runtime-groovy")
@@ -29,7 +31,7 @@ dependencies {
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.swagger.core.v3:swagger-annotations")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     testRuntimeOnly("org.testcontainers:postgresql")
